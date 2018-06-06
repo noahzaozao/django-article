@@ -8,6 +8,8 @@ Introduction
 ---------
 - Added Article model
 - Added ArticleAdmin, ArticleManager
+- Added Article list, detail api
+- Added Article list, detail view
 
 settings.py
 ---------
@@ -45,8 +47,8 @@ urls.py
 
         url(r'^admin/', admin.site.urls),
 
-        url(r'^article/(?P<wid>[0-9]+)$', ArticleDetailView.as_view()),
-        url(r'^article/$', ArticleListView.as_view()),
+        url(r'^article/list/', ArticleListView.as_view()),
+        url(r'^article/(?P<aid>[0-9]+)/$', ArticleDetailView.as_view()),
 
         url(r'^api/article/', include('django_article.urls', namespace='django-article')),
 
