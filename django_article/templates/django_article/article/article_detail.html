@@ -13,8 +13,37 @@
 
 {% block content %}
 {% include '../layout/header.html' %}
+
+<div class="pc-article-detail" v-if="article.title">
+    <div class="article-header text-center">
+        <div class="article-title">[[article.title]]</div>
+        <div class="article-time">2018-03-29</div>
+    </div>
+    <div class="article-body">
+        <div class="article-title-image mb20" v-lazy:background-image="article.cover_image"
+             :style="'width: 100%;height: 360px;background-image: url(' + article.cover_image + ');background-position: center;background-repeat: no-repeat;background-size: cover;'">
+        </div>
+        <div class="article-content mb26" v-html="article.content"></div>
+    </div>
+    <div class="article-footer">
+        <div class="previous" v-if="prev_article">
+            {% trans '上一篇' %}：
+            <a class="link-style" :href="'/article/' + prev_article.id" :title="prev_article.title">[[prev_article.title]]</a>
+        </div>
+        <div class="previous" v-else></div>
+        <div class="next" v-if="next_article">
+            {% trans '下一篇' %}：
+            <a class="link-style" :href="'/article/' + next_article.id" :title="next_article.title">[[next_article.title]]</a>
+        </div>
+        <div class="next" v-else></div>
+    </div>
+</div>
+
 {% endblock %}
 
 {% block script %}
+<script>
+    var aid = {{aid}};
+</script>
 <script type="text/javascript" src="{% static 'js/article_detail.js' %}"></script>
 {% endblock %}

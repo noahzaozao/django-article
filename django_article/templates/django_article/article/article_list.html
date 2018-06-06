@@ -13,6 +13,42 @@
 
 {% block content %}
 {% include '../layout/header.html' %}
+
+<div class="page-title text-center">{% trans 'Article List' %}</div>
+<div class="article-list">
+    <template v-for="(article,index) in articles">
+        <div class="article-box" v-if="index % 2 == 0">
+            <div class="box-left">
+                <img v-lazy="article.cover_image" :src="article.cover_image">
+            </div>
+            <div class="box-right">
+                <div class="article-title">
+                    [[article.title]]
+                </div>
+                <div class="article-body" v-html="article.desc"></div>
+                <div class="article-opration">
+                    <a class="btn btn-level21" :href="'/article/' + article.id">{% trans 'Details' %}</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="article-box" v-if="index % 2 == 1">
+            <div class="box-left">
+                <div class="article-title">
+                    [[article.title]]
+                </div>
+                <div class="article-body" v-html="article.desc"></div>
+                <div class="article-opration">
+                    <a class="btn btn-level21" :href="'/article/' + article.id">{% trans 'Details' %}</a>
+                </div>
+            </div>
+            <div class="box-right">
+                <img :src="article.title_image">
+            </div>
+        </div>
+    </template>
+</div>
+
 {% endblock %}
 
 {% block script %}

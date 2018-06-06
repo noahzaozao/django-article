@@ -21,7 +21,7 @@ from django_article.views import APIArticleListView, APIArticleDetailView
 app_name = 'django-article'
 urlpatterns = [
 
-    url(r'^article/(?P<wid>[0-9]+)$', APIArticleDetailView.as_view()),
-    url(r'^article/$', APIArticleListView.as_view()),
+    url(r'^list/$', APIArticleListView.as_view()),
+    url(r'^$', APIArticleDetailView.as_view()),
 
 ]

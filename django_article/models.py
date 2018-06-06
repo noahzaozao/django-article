@@ -36,6 +36,7 @@ class Article(models.Model):
         verbose_name=_('desc'),
         blank=True
     )
+    objects = ArticleManager()
 
     class Meta:
         verbose_name = _("Article")

@@ -1,0 +1,119 @@
+/*当文档宽度大于等于1200px*/
+@media screen  and (min-width: 1199px) {
+	.sky-container {
+		z-index: -1;
+	}
+	.article-list-box {
+		margin-top: 190px;
+	}
+	.page-title {
+		color: #ffffff;
+		font-size: 34px;
+		margin: 130px 0 66px;
+	}
+
+	.article-list {
+		width: 1200px;
+	    margin: 0 auto;
+	    background-color: #141414;
+	    padding: 56px 100px;
+	    font-size: 0;
+	}
+
+	.box-left,
+	.box-right {
+		display: inline-block;
+		width: 480px;
+		height: 246px;
+		vertical-align: top;
+	}
+	.box-left {
+		margin-right: 40px;
+	}
+	.box-left img,
+	.box-right img  {
+		width: 100%;
+		height: 100%;
+	}
+	.article-box {
+		margin-bottom: 103px;
+	}
+	.article-box:last-child {
+		margin-bottom: 0;
+	}
+
+	.article-title {
+		font-size: 18px;
+		color: #ffffff;
+		height: 66px;
+		margin-bottom: 6px;
+		overflow: hidden;
+	}
+	.article-body {
+		font-size: 14px;
+		color: #7b7b7b;
+		height: 118px;
+		margin-bottom: 15px;
+		overflow: hidden;
+	}
+}
+
+
+/*当文档宽度小于720px*/
+@media screen and (max-width: 1199px) {
+	#mainContent {
+		padding-top: 50px;
+	}
+	#app {
+		background-color: #141414 !important;
+	}
+	.article-list {
+		display: none;
+	}
+
+	.mobile-article-list {
+		display: block;
+		padding: 32px 21px; 
+	}
+
+	.article-box {
+		margin-bottom: 50px;
+	}
+
+	.page-title {
+		font-size: 22px;
+		color: #4bd8f3;
+		padding: 67px 0 69px;
+		background-color: #000000;
+	}
+
+	.article-title {
+		font-size: 15px;
+		color: #ffffff;
+		height: auto;
+		margin-bottom: 19px;
+		overflow: hidden;
+	}
+	.article-body {
+		font-size: 14px;
+		color: #7b7b7b;
+		margin-bottom: 19px;
+		display: -webkit-box;
+		-webkit-box-orient: vertical;
+		-webkit-line-clamp: 4;
+		overflow: hidden;
+	}
+	.article-image {
+		margin-bottom: 19px;
+	}
+	.mobile-detail-btn,
+	.mobile-detail-btn:hover, 
+	.mobile-detail-btn:focus,
+	.mobile-detail-btn:active,
+	.mobile-detail-btn:visited{
+		width: 105px;
+		height: 37px;
+		line-height: 35px;
+		text-align: center;
+	}
+}

@@ -22,5 +22,5 @@ class ArticleAdmin(ModelAdmin):
 
     search_fields = ['title']
     list_display = ('title', 'desc')
-    list_filter = ('status')
+    list_filter = ('status',)
     actions = ['make_publish', 'make_unpublish']

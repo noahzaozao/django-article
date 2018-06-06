@@ -24,17 +24,50 @@ class APIArticleListView(View):
         article_data = []
         for article in articles:
             article_data.append({
+                'id': article.id,
                 'title': article.title,
                 'content': article.content,
                 'desc': article.desc,
+                'cover_image': article.cover_image.url,
             })
         response = api_common({
-            'article_data': article_data
+            'articles': article_data
         })
         return JsonResponse(response)
 
 
 class APIArticleDetailView(View):
     def post(self, request):
-        response = api_common({})
+        aid = request.POST.get('aid', '')
+        article = Article.objects.get_article(aid=aid)
+
+        article_data = {
+            'id': article.id,
+            'cover_image': article.cover_image.url,
+            'title': article.title,
+            'status': article.status,
+            'content': article.content,
+            'desc': article.desc,
+        }
+
+        prev_aid = int(aid) - 1
+        prev_article = json.dumps(None)
+        if prev_aid > 0:
+            article = Article.objects.get_article(prev_aid)
+            if article:
+                prev_article = json.dumps({'id': article.id, 'title': article.title})
+
+        next_aid = int(aid) + 1
+        next_article = json.dumps(None)
+        if next_aid > 0:
+            article = Article.objects.get_article(next_aid)
+            if article:
+                next_article = json.dumps({'id': article.id, 'title': article.title})
+
+        context = {
+            'article': article_data,
+            'prev_article': prev_article,
+            'next_article': next_article,
+        }
+        response = api_common(context)
         return JsonResponse(response)
