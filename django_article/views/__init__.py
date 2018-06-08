@@ -1,3 +1,4 @@
-from api import *
-from article import *
-from base import *
+# -*- coding: utf-8 -*-
+from __future__ import unicode_literals
+
+from .api import *
